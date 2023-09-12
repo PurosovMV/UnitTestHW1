@@ -11,7 +11,7 @@ public class Calculator {
 
 
         // Проверка правильности вычислений
-        assertThat(calculatingDiscount(200, 20)).isEqualTo(180);
+        assertThat(calculatingDiscount(200, 20)).isEqualTo(160);
 
         //Проверка отрицательной цены
         assertThat(calculatingDiscount(-100, 25));
@@ -42,7 +42,7 @@ public class Calculator {
         } else if (discountAmount < 0) {
             throw new ArithmeticException("Скидка не может быть < 0");
         } else
-            result = purchaseAmount * (100 - discountAmount) / 100;
+            result = purchaseAmount - (purchaseAmount * discountAmount / 100) ;
         System.out.println("Стоимость товара: " + purchaseAmount + "\nСкидка составляет: " + discountAmount + "\nСтоимость с учётом скидки составляет - " + result);
         return result;
     }
